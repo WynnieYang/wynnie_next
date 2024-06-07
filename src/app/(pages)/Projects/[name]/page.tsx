@@ -19,14 +19,14 @@ export default function Page({ params }: { params: { name: string } }) {
     : params.name === 'climb' ? 
     <div className="w-full h-full grow flex flex-row items-center justify-center px-12" >
       <div className={`flex-[3_3_0%] flex items-center justify-center`}>
-        <Image className="rounded-lg mx-8" src={`/images/${params.name}_1.png`} width={300} height={600} alt={`${params.name}_1.png`} unoptimized/>
-        <Image className="rounded-lg mx-8" src={`/images/${params.name}_2.png`} width={300} height={600} alt={`${params.name}_2.png`} unoptimized/>
+        <Image className="rounded-lg mx-8" src={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/${params.name}_1.png`} width={300} height={600} alt={`${params.name}_1.png`} unoptimized/>
+        <Image className="rounded-lg mx-8" src={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/${params.name}_2.png`} width={300} height={600} alt={`${params.name}_2.png`} unoptimized/>
       </div>
       <div className={`flex-[2_2_0%] h-3/5 bg-FBFEFB rounded-2xl shadow-md flex items-start justify-start flex-col`}>
         <div className="p-4"><span className="text-black text-lg">登入頁/首頁</span></div>
         <div className="border-t w-full border-slate-400 grow flex items-start justify-between flex-col">
           <div></div>
-          <div className="w-full flex items-end justify-end"><Image src={`/images/${params.name}ing_1.svg`} width={60} height={80} alt={`${params.name}ing_1.svg`} unoptimized/></div>
+          <div className="w-full flex items-end justify-end"><Image src={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/${params.name}ing_1.svg`} width={60} height={80} alt={`${params.name}ing_1.svg`} unoptimized/></div>
         </div>
       </div>
     </div>

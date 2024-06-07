@@ -69,7 +69,7 @@ function Card({type}: {type:string}) {
     cardList.filter((ele) => ele.type === type).map((cardItem,cardIndex) => (
         <div key={`${cardItem.id}${cardIndex}`} className='w-[31%] min-w-[280px] min-h-64 h-auto bg-FBFEFB rounded-2xl shadow-md flex items-start justify-start p-8 flex-col mb-8 mr-8'>
             <div className='flex flex-row grow w-full'>
-                <div className='min-w-10 h-full'><Image width={30} height={30} src={`/images/${cardItem.id}_logo.svg`} alt={cardItem.id} unoptimized/></div>
+                <div className='min-w-10 h-full'><Image width={30} height={30} src={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/${cardItem.id}_logo.svg`} alt={cardItem.id} unoptimized/></div>
                 <div className='grow h-full ml-2 flex items-start justify-start flex-col'>
                     <div className='flex-1 w-full flex items-center justify-between min-h-8 max-h-8'><span className='text-black text-lg'>{cardItem.name}</span></div>
                     <div className='flex-1 w-full flex items-center justify-start flex-row flex-wrap'>
