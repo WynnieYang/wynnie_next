@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: baskerville-urw !important;
+  margin:0; padding:0 ; box-sizing: border-box;
+  font-stretch: normal;
+  font-style: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background-color: transparent; }
+  ::-webkit-scrollbar-thumb { border-radius: 4px; background-color: #C0C0C0; }
+  ::-webkit-scrollbar-thumb:hover { background-color: #c8c8c8; }
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+} */
+
+/* body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
+
+/* PortalTab */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100px;
+  background: white;
+  opacity: 0;
+  visibility: hidden;
+  border-width: 2px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.container:hover .dropdown,
+.dropdown:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
+figure {
+  clip-path: polygon(48% 5%, 34% 45%, 62% 45%);
+  /* height: 753px; */
+  margin: 0;
+  padding: 0;
+  /* padding-top: 100px; */
+  overflow: hidden;
+ }
+
+ .Buy_me_drink figure  {
+  transform: rotate(0) scale(1);
+  transition: 1s ease-in-out;
+ }
+ .Buy_me_drink figure.hover  {
+  transform: rotate(360deg) scale(4);
+ }
+ .Buy_me_drink figure img {
+  transform: rotate(0) scale(1);
+  transition: 1s ease-in-out;
+ }
+ .Buy_me_drink figure img.hover {
+  transform: rotate(-360deg) scale(0.25);
+  padding-top: 200px;
+  height: 2000px;
+  margin-bottom: 200px;
+ }
+
+.rd3t-node circle {
+  fill: #D0B8AC; /* 节点填充颜色 */
+  stroke: #D0B8AC; /* 节点描边颜色 */
+  stroke-width: 2px; /* 节点描边宽度 */
+}
