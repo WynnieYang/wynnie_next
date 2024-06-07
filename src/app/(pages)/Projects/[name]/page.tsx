@@ -13,7 +13,7 @@ export async function generateStaticParams() {
  
 export default function Page({ params }: { params: { name: string } }) {
     return (params.name === 'dispatch' || params.name === 'dcm'  ?
-    <div className="w-full h-full flex items-start justify-center " style={{backgroundImage: 'url(/images/tv_bg.png)', backgroundSize:'85%', backgroundRepeat:'no-repeat', backgroundPositionX: '50%'}}>
+    <div className="w-full h-full flex items-start justify-center " style={{backgroundImage: `url(${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/tv_bg.png)`, backgroundSize:'85%', backgroundRepeat:'no-repeat', backgroundPositionX: '50%'}}>
       <VideoPlayer width={ params.name === 'dispatch' ? '65%' : '62%'} source={ params.name === 'dispatch' ? '/videos/dispatcher_improve.mp4' : '/videos/dcm_demo.mov'}/>
     </div>
     : params.name === 'climb' ? 
