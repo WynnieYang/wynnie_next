@@ -24,7 +24,7 @@ function page() {
             {/* <Document file="/intro.pdf" >
                 <Page pageNumber={1} />
             </Document> */}
-            <Image src={'/images/introduction.jpg'} alt='intro' width={1200} height={800}/>
+            <Image src={'/images/introduction.jpg'} alt='intro' width={1200} height={800} unoptimized/>
         </div>
     </div>
   )
