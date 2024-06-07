@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className='bg-[#EFE5DC]'>
-      <head><link rel="icon" href="/logo.svg" /></head>
+      <head><link rel="icon" href={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/logo.svg`} /></head>
       <body className={inter.className}>{children}</body>
     </html>
   )
