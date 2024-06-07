@@ -1,7 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import PortalTab from '@/components/PortalTab';
-import MobileTab from '@/components/MobileTab';
 import Nav from '@/components/Nav';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
