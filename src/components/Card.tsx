@@ -38,11 +38,11 @@ function Card({type}: {type:string}) {
       });
     },[])
     const [cardList,setCardList] = useState([
-        {name: 'Warehouse Management System', id: 'wms', frame: ['React,TS,SCSS,Design'], apiMethods: 'GET/PUT/POST', type: 'develop', href: 'https://wms.super-datafabric.iii-ei-stack.com/PDashboard', description: '此為單獨發想設計畫面的第一份專案，注重整體色調和風格。', isShowDes: false, highlightWord: '設計畫面'},
+        {name: 'WMS', id: 'wms', frame: ['React,TS,SCSS,Design'], apiMethods: 'GET/PUT/POST', type: 'develop', href: 'https://wms.super-datafabric.iii-ei-stack.com/PDashboard', description: '此為單獨發想設計畫面的第一份專案，注重整體色調和風格。', isShowDes: false, highlightWord: '設計畫面'},
         // {name: 'MasterData', id: 'md', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop',isShowDes: false, description: '使用行事曆排程功能。', highlightWord: '排程' },
         {name: 'Dispatcher', id: 'dispatch', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop',isShowDes: false, description: '實現滾動式渲染並同時偵測滑鼠靜止不動每十秒重新打api。',highlightWord: '滾動式渲染並同時偵測滑鼠靜止不動' },
         // {name: 'MasterData', id: 'md', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop'},
-        {name: 'Document Management', id: 'dcm', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop', isShowDes: false, description: '使用Konva實現以圖片為背景的繪圖板。', highlightWord: 'canvas'},
+        {name: 'Document Mgmt.', id: 'dcm', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop', isShowDes: false, description: '使用Konva實現以圖片為背景的繪圖板。', highlightWord: 'canvas'},
         {name: 'III-5GES', id: '5ges', frame: ['React,TS,SCSS,Design,Vite'], apiMethods: 'WEBSOCKET', type: 'develop', href: 'http://60.251.156.213:21080/dashboard', isShowDes: false, description: '以Dashboard視覺化呈現資料，支援Dark/Light Mode切換。', highlightWord: 'Dark/Light'},
         {name: 'IGP', id: 'igp', frame: ['React,TS,SCSS'], apiMethods: 'GET', type: 'develop', href: 'https://igp.super-datafabric.iii-ei-stack.com/PStudio', isShowDes: false, description:'花三日從零開發，以利公司提案。', highlightWord: '三日'},
         // {name: 'TIAC', id: 'tiac', frame: ['NEXT,TS,CSS'], apiMethods: 'GET/POST', type: 'maintain', isShowDes: false, description:'使用App Router架構、RTK。', highlightWord: 'App Router'},
@@ -88,7 +88,7 @@ function Card({type}: {type:string}) {
             <div className='flex flex-row grow w-full'>
                 <div className='min-w-10 h-full'><Image width={30} height={30} src={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/${cardItem.id}_logo.svg`} alt={cardItem.id} unoptimized/></div>
                 <div className='grow h-full ml-2 flex items-start justify-start flex-col'>
-                    <div className='flex-1 w-full flex items-center justify-between min-h-8 max-h-8'><span className='text-black text-lg break-words whitespace-normal'>{cardItem.name}</span></div>
+                    <div className='flex-2 w-full flex items-center justify-between min-h-8 max-h-8'><span className='text-black text-lg break-words whitespace-normal'>{cardItem.name}</span></div>
                     <div className='flex-1 w-full flex items-center justify-start flex-row flex-wrap'>
                         { cardItem.frame.map((frame) => 
                             <React.Fragment key={frame}>
