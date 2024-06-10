@@ -10,13 +10,13 @@ function page() {
     //專案清單
     <Suspense fallback={<Loading/>}>
       <div className='w-full h-full pl-12 py-4 overflow-y-auto'>
-        <div className='h-12 '><span className='text-bold text-xl text-slate-600'>Develop</span></div>
+        <div className='h-12 '><span className='text-bold text-xl text-E0E1DD'>Develop</span></div>
         <div className='flex flex-row flex-wrap'>
           <Card type='develop'/>
         </div>
         {/* <div className='h-12'><span className='text-bold text-xl text-slate-600'>Maintain</span></div>
           <Card type='maintain'/> */}
-        <div className='h-12'><span className='text-bold text-xl text-slate-600'>Side Project</span></div>
+        <div className='h-12'><span className='text-bold text-xl text-E0E1DD'>Side Project</span></div>
         <div className='flex flex-row flex-wrap'>
           <Card type='sideproject'/>
         </div>

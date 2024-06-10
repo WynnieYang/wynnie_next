@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className='bg-[#EFE5DC]'>
+    <html lang="en" className='bg-[#778DA9]'>
       <head><link rel="icon" href={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/logo.svg`} /></head>
       <body className={inter.className}>{children}</body>
     </html>

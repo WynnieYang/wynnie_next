@@ -13,13 +13,30 @@ import { FaCss3Alt } from "react-icons/fa";
 import { TbBrandReactNative } from "react-icons/tb";
 import { SiGooglemaps } from "react-icons/si";
 import { IoLogoFirebase } from "react-icons/io5";
-import { MdKeyboardDoubleArrowDown } from "react-icons/md";
-import { MdOutlineTextsms } from "react-icons/md";
-import { FaTasks } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa";
 
 function Card({type}: {type:string}) {
+    useEffect(() => {
+      [`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/climb_1.avif`,`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/climb_2.avif`,`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/tv_bg.avif`].forEach((imageUrl) => {
+          const newImage = new window.Image();
+          newImage.src = imageUrl;
+          (window as any)[imageUrl] = newImage
+          newImage.onload = () => {
+              
+          };
+      });
+      [`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/videos/dcm_demo.mov`, `${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/videos/dispatcher_improve.mp4`].map((videoUrl) => {
+          const video = document.createElement('video');
+          video.src = videoUrl;
+          video.load();
+          (window as any)[videoUrl] = video; // Assigning to window object if needed
+          video.onloadeddata = () => {
+            // Video is loaded and ready to play
+            
+          };
+      });
+    },[])
     const [cardList,setCardList] = useState([
         {name: 'Warehouse Management System', id: 'wms', frame: ['React,TS,SCSS,Design'], apiMethods: 'GET/PUT/POST', type: 'develop', href: 'https://wms.super-datafabric.iii-ei-stack.com/PDashboard', description: '此為單獨發想設計畫面的第一份專案，注重整體色調和風格。', isShowDes: false, highlightWord: '設計畫面'},
         // {name: 'MasterData', id: 'md', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop',isShowDes: false, description: '使用行事曆排程功能。', highlightWord: '排程' },
@@ -67,25 +84,25 @@ function Card({type}: {type:string}) {
 
   return (
     cardList.filter((ele) => ele.type === type).map((cardItem,cardIndex) => (
-        <div key={`${cardItem.id}${cardIndex}`} className='w-[31%] min-w-[280px] min-h-64 h-auto bg-FBFEFB rounded-2xl shadow-md flex items-start justify-start p-8 flex-col mb-8 mr-8'>
+        <div key={`${cardItem.id}${cardIndex}`} className='w-[31%] min-w-[280px] min-h-64 h-auto bg-E0E1DD rounded-2xl shadow-md flex items-start justify-start p-8 flex-col mb-8 mr-8'>
             <div className='flex flex-row grow w-full'>
                 <div className='min-w-10 h-full'><Image width={30} height={30} src={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/images/${cardItem.id}_logo.svg`} alt={cardItem.id} unoptimized/></div>
                 <div className='grow h-full ml-2 flex items-start justify-start flex-col'>
-                    <div className='flex-1 w-full flex items-center justify-between min-h-8 max-h-8'><span className='text-black text-lg'>{cardItem.name}</span></div>
+                    <div className='flex-1 w-full flex items-center justify-between min-h-8 max-h-8'><span className='text-black text-lg break-words whitespace-normal'>{cardItem.name}</span></div>
                     <div className='flex-1 w-full flex items-center justify-start flex-row flex-wrap'>
                         { cardItem.frame.map((frame) => 
                             <React.Fragment key={frame}>
-                                { frame.includes('React') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><FaReact color='#35799C' size={20}/><span className='text-slate-600 mx-1'>React</span></div> }
-                                { frame.includes('RN') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><TbBrandReactNative color='#10A6D4' size={20}/><span className='text-slate-600 mx-1'>React Native</span></div> }
-                                { frame.includes('NEXT') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><TbBrandNextjs className='text-slate-600' size={20}/><span className='text-slate-600 mx-1'>Next.js</span></div> }
-                                { frame.includes('TS') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><SiTypescript color='#4377C1' size={16}/><span className='text-slate-600 mx-1'>TypeScript</span></div> }
-                                { frame.includes('CSS') && ( frame.includes('SCSS') ? <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><BsFiletypeScss color='#C16A98' size={18}/><span className='text-slate-600 mx-1'>SCSS</span></div> : <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><FaCss3Alt color='#2C4BDC' size={18}/><span className='text-slate-600 mx-1'>CSS</span></div>) }
-                                { frame.includes('Vite') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><SiVite className='text-slate-600' size={16}/><span className='text-slate-600 mx-1'>Vite</span></div> }
-                                { frame.includes('Map') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><SiGooglemaps color='#D85140' size={16}/><span className='text-slate-600 mx-1'>Google Map</span></div> }
-                                { frame.includes('Firebase') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 flex-row mr-2 mb-2'><IoLogoFirebase className='text-slate-600' size={16}/><span className='text-slate-600 mx-1'>Firebase</span></div> }
-                                { frame.includes('Design') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 mr-2 mb-2'><IoMdCheckmarkCircleOutline size={20} color='#619b8a'/><span className='text-black text-base ml-1'>UI/UX</span></div>}
-                                { frame.includes('Tailwind') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 mr-2 mb-2'><RiTailwindCssFill size={20} color='#52B3D1'/><span className='text-black text-base ml-1'>Tailwind CSS</span></div>}
-                                { frame.includes('GithubPage') && <div className='w-fit flex items-center justify-center rounded-xl border px-2 mr-2 mb-2'><FaGithub size={20} color='#222222'/><span className='text-black text-base ml-1'>GitHub Pages</span></div>}
+                                { frame.includes('React') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><FaReact color='#35799C' size={20}/><span className='text-1B263B mx-1'>React</span></div> }
+                                { frame.includes('RN') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><TbBrandReactNative color='#10A6D4' size={20}/><span className='text-1B263B mx-1'>React Native</span></div> }
+                                { frame.includes('NEXT') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><TbBrandNextjs className='text-slate-600' size={20}/><span className='text-1B263B mx-1'>Next.js</span></div> }
+                                { frame.includes('TS') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><SiTypescript color='#4377C1' size={16}/><span className='text-1B263B mx-1'>TypeScript</span></div> }
+                                { frame.includes('CSS') && ( frame.includes('SCSS') ? <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><BsFiletypeScss color='#C16A98' size={18}/><span className='text-1B263B mx-1'>SCSS</span></div> : <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><FaCss3Alt color='#2C4BDC' size={18}/><span className='text-1B263B mx-1'>CSS</span></div>) }
+                                { frame.includes('Vite') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><SiVite className='text-slate-600' size={16}/><span className='text-1B263B mx-1'>Vite</span></div> }
+                                { frame.includes('Map') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><SiGooglemaps color='#D85140' size={16}/><span className='text-1B263B mx-1'>Google Map</span></div> }
+                                { frame.includes('Firebase') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 flex-row mr-2 mb-2'><IoLogoFirebase className='text-slate-600' size={16}/><span className='text-1B263B mx-1'>Firebase</span></div> }
+                                { frame.includes('Design') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 mr-2 mb-2'><IoMdCheckmarkCircleOutline size={20} color='#619b8a'/><span className='text-black text-base ml-1'>UI/UX</span></div>}
+                                { frame.includes('Tailwind') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 mr-2 mb-2'><RiTailwindCssFill size={20} color='#52B3D1'/><span className='text-black text-base ml-1'>Tailwind CSS</span></div>}
+                                { frame.includes('GithubPage') && <div className='w-fit flex items-center justify-center rounded-xl border border-415A77 px-2 mr-2 mb-2'><FaGithub size={20} color='#222222'/><span className='text-black text-base ml-1'>GitHub Pages</span></div>}
                             </React.Fragment>
                         )}
                     </div>
@@ -93,7 +110,7 @@ function Card({type}: {type:string}) {
                 { cardItem?.description && <div ref={descriptionRef} className='flex-1 flex items-start justify-start w-full min-h-6'>
                 {/* <MdOutlineTextsms className='text-slate-500'/> */}
                 {/* <span className={`text-slate-500 text-sm break-words whitespace-normal `}>{HighlightText({text: cardItem?.description, highlight: cardItem.highlightWord})}</span></div>} */}
-                <span className={`text-slate-500 text-sm break-words whitespace-normal `}>{cardItem?.description}</span></div>}
+                <span className={`text-415A77 text-sm break-words whitespace-normal `}>{cardItem?.description}</span></div>}
                     {/* { (cardItem?.description?.length < (desWidth / 20) || cardItem.isShowDes) ? <span className='text-slate-500 text-sm break-words whitespace-normal'>{cardItem?.description}</span>
                      : <div className='flex items-center justify-between w-full'>
                         <div><span className='text-slate-500 text-sm break-words whitespace-normal'>{cardItem?.description.slice(0,(desWidth / 20))}...</span></div>
@@ -101,7 +118,7 @@ function Card({type}: {type:string}) {
                 </div>
             </div>
             {/* <Link className='w-full h-10 bg-D0B8AC text-white hover:bg-EFE5DC hover:text-D0B8AC flex items-center justify-center rounded-xl cursor-pointer' href={`/Projects/${cardItem.id}`}><span className='text-base'>Take a look!</span></Link> */}
-            <Link className='w-full h-10 bg-D0B8AC text-white hover:bg-EFE5DC hover:text-D0B8AC flex items-center justify-center rounded-xl cursor-pointer mt-4' target={cardItem.href ? "_blank" : "_self"} href={cardItem.href ? cardItem.href : `/Projects/${cardItem.id}`}><span className='text-base'>Take a look!</span></Link>
+            <Link className='w-full h-10 bg-415A77 text-white hover:bg-E0E1DD hover:text-415A77 border border-415A77 hover:border-415A77 flex items-center justify-center rounded-xl cursor-pointer mt-4' target={cardItem.href ? "_blank" : "_self"} href={cardItem.href ? cardItem.href : `/Projects/${cardItem.id}`}><span className='text-base'>Take a look!</span></Link>
         </div>
     ))
    
