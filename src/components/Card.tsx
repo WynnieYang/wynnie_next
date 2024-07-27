@@ -43,9 +43,9 @@ function Card({type}: {type:string}) {
         {name: 'Dispatcher', id: 'dispatch', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop',isShowDes: false, description: '實現滾動式渲染並同時偵測滑鼠靜止不動每十秒重新打api。',highlightWord: '滾動式渲染並同時偵測滑鼠靜止不動' },
         // {name: 'MasterData', id: 'md', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop'},
         {name: 'Document Mgmt.', id: 'dcm', frame: ['React,TS,SCSS'], apiMethods: 'GET/PUT/POST/DELETE', type: 'develop', isShowDes: false, description: '使用Konva實現以圖片為背景的繪圖板。', highlightWord: 'canvas'},
-        {name: 'III-5GES', id: '5ges', frame: ['React,TS,SCSS,Design,Vite'], apiMethods: 'WEBSOCKET', type: 'develop', href: 'http://60.251.156.213:21080/dashboard', isShowDes: false, description: '以Dashboard視覺化呈現資料，支援Dark/Light Mode切換。', highlightWord: 'Dark/Light'},
+        {name: 'III-5GES', id: '5ges', frame: ['React,TS,SCSS,Design,Vite'], apiMethods: 'WEBSOCKET', type: 'develop', href: 'https://ui.60.251.156.213.nip.io', isShowDes: false, description: '以Dashboard視覺化呈現資料，支援Dark/Light Mode切換。', highlightWord: 'Dark/Light'},
         {name: 'IGP', id: 'igp', frame: ['React,TS,SCSS'], apiMethods: 'GET', type: 'develop', href: 'https://igp.super-datafabric.iii-ei-stack.com/PStudio', isShowDes: false, description:'花三日從零開發，以利公司提案。', highlightWord: '三日'},
-        // {name: 'TIAC', id: 'tiac', frame: ['NEXT,TS,CSS'], apiMethods: 'GET/POST', type: 'maintain', isShowDes: false, description:'使用App Router架構、RTK。', highlightWord: 'App Router'},
+        {name: 'TIAC', id: 'tiac', frame: ['NEXT,TS,CSS'], apiMethods: 'GET/POST', type: 'develop', isShowDes: false, description:'使用App Router架構、RTK。', href: 'http://ciip-ui.60.251.156.216.nip.io/overview',highlightWord: 'App Router'},
         {name: 'Climbing_app', id: 'climb', frame: ['RN,TS','Map','Design'], apiMethods: '', type: 'sideproject',isShowDes: false, description: '初試React Native並使用Google Map顯示地圖，加入Firebase建置資料庫。', highlightWord: 'React Native'},
         {name: 'Gallery', id: 'gallery', frame: ['NEXT,TS','Tailwind','GithubPage'], apiMethods: '', type: 'sideproject',isShowDes: false, description: '使用App Router架構，Lazy Load Image，部署上版至GitHub Pages。', highlightWord: 'React Native', href: 'https://mafayangphoto.github.io/gallery/event/wedding'},
     ]);

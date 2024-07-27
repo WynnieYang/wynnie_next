@@ -10,7 +10,7 @@ function Nav() {
     const pathname = usePathname();
     const navList = ['Home', 'Introduction']
   return (
-    <div className='ml-12 pr-8 h-12 lg:h-16 flex items-center justify-between border-solid border-b-2 border-415A77'>
+    <div className='ml-12 pr-8 h-12 lg:h-16 flex items-center justify-between border-solid border-b-2 border-[#778DA9]'>
         <Link href={'/Home'}><Image className='cursor-pointer' src={`${process.env.NODE_ENV === 'production' ? '/wynnie_next' : ''}/logo.png`} alt='logo' width={40} height={40} priority unoptimized /></Link>
         <div className='flex items-center justify-start flex-row '>
             { navList.map((nav,navIndex) => (
